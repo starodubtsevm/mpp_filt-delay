@@ -5,7 +5,7 @@ from matplotlib.backends.backend_pdf import PdfPages as pdf
 from scipy.signal import freqz
 from const import*
 
-def plot_fr(y,freqs,band,ntaps,show_graphics):
+def plot_fr(y,freqs,band,ntaps):
 
     lowcut  = freqs - band/2
     highcut = freqs + band/2
@@ -31,7 +31,6 @@ def plot_fr(y,freqs,band,ntaps,show_graphics):
     plt.title('АЧХ входного FIR фильтра, %d - %d  Гц %d taps, fs = %d kHz' % (lowcut, highcut, ntaps, fs))
 
     file_name = str("FIR_" + str(lowcut)+ "-" + str(highcut)+".png")
-    print(file_name)
 
     plt.savefig('./Graphics/'+ file_name)
     plt.clf()
