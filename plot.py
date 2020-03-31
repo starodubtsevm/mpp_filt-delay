@@ -1,8 +1,9 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.signal import freqz
+from const import*
 
-def plot_fr():
+def plot_fr(y,lowcut,highcut,ntaps):
     # Plot the frequency responses of the filters.
     plt.figure(1, figsize=(12, 9))
     plt.clf()
