@@ -2,7 +2,7 @@ from scipy.signal import firwin
 
 
     #Расчет коэффициентов FIR abkmnhf
-def bandpass_firwin(ntaps, lowcut, highcut, fs, window='hamming'):
+def bandpass_input_fir(ntaps, lowcut, highcut, fs, window='hamming'):
     nyq = 0.5 * fs
 
     taps = firwin(ntaps, [lowcut, highcut], nyq=nyq, pass_zero=False,

@@ -1,9 +1,9 @@
-#ifndef __FIR_525_H__
-#define __FIR_525_H__
+#ifndef __FIR_475_H__
+#define __FIR_475_H__
 
-#define LENGTH_FIR_525    1045
+#define LENGTH_FIR_475    1045
 
-static fract16 fir525coeff[LENGTH_FIR_525] =
+static fract16 fir475coeff[LENGTH_FIR_475] =
 {
       -3       -2       -2       -1        0        1        2        2
        3        3        2        1        0        0       -1       -2

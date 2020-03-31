@@ -9,22 +9,20 @@ from const import*
 freqs = 475, 525, 575, 625, 675, 725, 775,825, 875, 925 # частоты фильтра
 band = 22 # полоса пропускания фильтра
 lpf_cut = 15 # частота среза фнч после детектора
-ntaps = 1024
+ntaps = 1045
 #--------------------------------------------------------------------------
 
-print (freqs[0])
+for i in range (len(freqs)):
 
-taps_hamming = bandpass_firwin(ntaps, 460, 480, fs=fs)
-y = []
-x =0
-for i  in range (len(taps_hamming)):
-    #x = float('{:.4f}'.format(taps_hamming[i]))
-    x = taps_hamming[i]
-    y.append(int(x*32768))
-print (y)
+    taps = bandpass_input_fir(ntaps, freqs[0]-band/2, freqs[0]+band/2, fs=fs)
+    y = []
+    x =0
+    for j  in range (len(taps)):
+        #x = float('{:.4f}'.format(taps[i])) # коэффициенты с плавающей запятой
+        x = int((taps[j]*32768)) # коэффициенты целочисленные
 
-plot_fr(y, 460,480,ntaps)
-
-
+        y.append(x)
+    prn_to_file(y,freqs[i],ntaps)
+    #plot_fr(y, freqs[0]-band/2, freqs[0]+band/2 ,ntaps)
 
 
