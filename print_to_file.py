@@ -14,7 +14,7 @@ def prn_to_file(y, freqs, len_tabs, delay_ms, delay_tick):
     str9 = ""
     str10 = "#endif"
     str11 = "static fract16 delay"+ str(freqs)+ "="
-    str12 = str(delay_ms)
+    str12 = str(delay_ms)+","
     str13 = str(delay_tick)
 
     head = (str1, str2, str3, str4, str5, str6, str7)
@@ -29,26 +29,29 @@ def prn_to_file(y, freqs, len_tabs, delay_ms, delay_tick):
     string = ""
 
     for i in range (0,len_tabs,8):
-        if (len_tabs - i) >= 8:
-            string = "{:8d} {:8d} {:8d} {:8d} {:8d} {:8d} {:8d} {:8d}".format(y[i],\
+        if (len_tabs - i) > 8:
+            string = "{:7d},{:7d},{:7d},{:7d},{:7d},{:7d},{:7d},{:7d},".format(y[i],\
+            y[i+1],y[i+2],y[i+3],y[i+4],y[i+5],y[i+6],y[i+7])
+        elif (len_tabs - i) == 8:
+            string = "{:7d},{:7d},{:7d},{:7d},{:7d},{:7d},{:7d},{:7d}".format(y[i],\
             y[i+1],y[i+2],y[i+3],y[i+4],y[i+5],y[i+6],y[i+7])
         elif (len_tabs - i) == 7:
-            string = "{:8d} {:8d} {:8d} {:8d} {:8d} {:8d} {:8d}".format(y[i],\
+            string = "{:7d},{:7d},{:7d},{:7d},{:7d},{:7d},{:7d}".format(y[i],\
             y[i+1],y[i+2],y[i+3],y[i+4],y[i+5],y[i+6])
         elif (len_tabs - i) == 6:
-            string = "{:8d} {:8d} {:8d} {:8d} {:8d} {:8d}".format(y[i],\
+            string = "{:7d},{:7d},{:7d},{:7d},{:7d},{:7d}".format(y[i],\
             y[i+1],y[i+2],y[i+3],y[i+4],y[i+5])
         elif (len_tabs - i) == 5:
-            string = "{:8d} {:8d} {:8d} {:8d} {:8d}".format(y[i],y[i+1],y[i+2],\
+            string = "{:7d},{:7d},{:7d},{:7d},{:7d}".format(y[i],y[i+1],y[i+2],\
             y[i+3],y[i+4])
         elif (len_tabs - i) == 4:
-            string = "{:8d} {:8d} {:8d} {:8d}".format(y[i],y[i+1],y[i+2],y[i+3])
+            string = "{:7d},{:7d},{:7d},{:7d}".format(y[i],y[i+1],y[i+2],y[i+3])
         elif (len_tabs - i) == 3:
-            string = "{:8d} {:8d} {:8d}".format(y[i],y[i+1],y[i+2])
+            string = "{:7d},{:7d},{:7d}".format(y[i],y[i+1],y[i+2])
         elif (len_tabs - i) == 2:
-            string = "{:8d} {:8d}".format(y[i],y[i+1])
+            string = "{:7d},{:7d}".format(y[i],y[i+1])
         elif (len_tabs - i) == 1:
-            string = "{:8d} ".format(y[i])
+            string = "{:7d} ".format(y[i])
 
         out_file.write(string + '\n')
         string = ""
