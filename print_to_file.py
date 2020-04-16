@@ -13,7 +13,7 @@ def prn_to_file(y, freqs, len_tabs, delay_ms, delay_tick):
     str8 = "};"
     str9 = ""
     str10 = "#endif"
-    str11 = "static fract16 delay"+ str(freqs)+ "="
+    str11 = "static fract16 delay"+ str(freqs)+ " ="
     str12 = str(delay_ms)+","
     str13 = str(delay_tick)
 

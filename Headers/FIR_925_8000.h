@@ -138,7 +138,7 @@ static fract16 fir925coeff[LENGTH_FIR_925] =
      -2,     -3,     -2,      0,      1
 };
 
-static fract16 delay925=
+static fract16 delay925 =
 {
 0.0208,
 166
